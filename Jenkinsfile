@@ -11,7 +11,7 @@ pipeline {
             stage ('Checkout'){
                 steps {
                      echo 'Cloning the git repo'
-                     git branch: 'main', url: 'https://github.com/shraddharane1395/CertiProject.git'
+                     git branch: 'main', url: 'https://github.com/shraddharane1395/DemoProj.git'
                 }
                
             }
