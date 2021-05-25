@@ -1,0 +1,22 @@
+---
+- hosts : webservers
+  become : true
+  become_user : root
+  tasks :          
+   - name : Install Docker
+     yum:
+       name: docker
+       state : present    
+
+   - name : Docker start
+     service :
+       name : docker
+       state : started
+       
+   - name : Pull the container
+     command : docker pull shraddharane/newimage2:{{DOCKER_TAG}}
+     
+   - name : Run the container
+     command : docker run -itd  -P shraddharane/newimage2:{{DOCKER_TAG}}
+      
+      
